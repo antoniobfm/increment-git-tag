@@ -2,7 +2,7 @@
 
 VERSION=""
 
-# get parameters
+# get parameters 
 while getopts v: flag
 do
   case "${flag}" in
