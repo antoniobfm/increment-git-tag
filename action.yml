@@ -1,3 +1,4 @@
+---
 name: Increment Git Tag
 description: Increment git tag based on the provided version type
 inputs:
