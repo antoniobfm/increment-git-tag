@@ -28061,7 +28061,7 @@ async function run() {
     const versionType = core.getInput('version-type');
     const src = __dirname;
 
-    await exec.exec(`${src}/action/git_update.sh -v ${versionType}`);
+    await exec.exec(`${src}/git_update.sh -v ${versionType}`);
   } catch (error) {
     core.setFailed(error.message);
   }
