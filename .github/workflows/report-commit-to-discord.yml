@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Extract Linear ID
-        id: extract-id
         run: |
-          LINEAR_ID=$(echo '${{ github.event.head_commit.message }}' | grep -o 'ANT-[0-9]\+')
+          LINEAR_ID=$(echo 'Merge branch "main" of https://github.com/antoniobfm/increment-git-tag' | grep -o 'ANT-[0-9]\+' || true)
           echo "LINEAR_ID=$LINEAR_ID" >> $GITHUB_ENV
+        shell: /usr/bin/bash -e {0}
 
       - name: Deploy Stage
         uses: fjogeleit/http-request-action@v1
