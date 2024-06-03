@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.6...v1.1.7) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** adjust linear_id capture ([c33081a](https://github.com/antoniobfm/increment-git-tag/commit/c33081a9564a03f464d64eb3f6dfc903f18dcd12))
+
 ## [1.1.6](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.5...v1.1.6) (2024-06-03)
 
 
