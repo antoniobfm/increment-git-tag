@@ -16,6 +16,7 @@ jobs:
 
       - name: Extract Linear ID
         run: |
+          # Extract the Linear ID from the commit message and set it as an environment variable
           LINEAR_ID=$(echo "${{ github.event.head_commit.message }}" | head -n 1 | grep -o 'ANT-[0-9]\+' || true)
           echo "LINEAR_ID=$LINEAR_ID" >> $GITHUB_ENV
 
