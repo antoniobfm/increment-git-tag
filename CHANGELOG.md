@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.1...v1.1.2) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** fix error related to discord notification ANT-10 ([df362da](https://github.com/antoniobfm/increment-git-tag/commit/df362dadd4f959a766d1fb797b7a8bece5cad8f0))
+
 ## [1.1.1](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.0...v1.1.1) (2024-06-03)
 
 
