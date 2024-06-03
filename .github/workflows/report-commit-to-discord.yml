@@ -30,7 +30,7 @@ jobs:
           customHeaders: '{"Content-Type": "application/json"}'
           data: |
             {
-              "content": "🚀 **New Commit Alert!**",
+              "content": "🚀 **New Commit Alert!** 🚀",
               "embeds": [
                 {
                   "title": "${{ github.event.head_commit.message }}",
