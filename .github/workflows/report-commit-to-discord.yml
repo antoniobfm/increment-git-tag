@@ -16,8 +16,9 @@ jobs:
 
       - name: Extract Linear ID
         run: |
-          LINEAR_ID=$(echo 'Merge branch "main" of https://github.com/antoniobfm/increment-git-tag' | grep -o 'ANT-[0-9]\+' || true)
+          LINEAR_ID=$(echo "${{ github.event.head_commit.message }}" | head -n 1 | grep -o 'ANT-[0-9]\+' || true)
           echo "LINEAR_ID=$LINEAR_ID" >> $GITHUB_ENV
+
         shell: /usr/bin/bash -e {0}
 
       - name: Deploy Stage
