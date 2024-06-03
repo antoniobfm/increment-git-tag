@@ -14,15 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up commit info
-        run: |
-          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
-          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
-          FIRST_LINE="$(echo "$COMMIT_MESSAGE" | head -n 1)"
-          echo "FIRST_LINE=$FIRST_LINE" >> $GITHUB_ENV
-          ISSUE_ID=$(echo "$COMMIT_MESSAGE" | grep -o 'ANT-[0-9]+')
-          echo "ISSUE_ID=$ISSUE_ID" >> $GITHUB_ENV
-
       - name: Deploy Stage
         uses: fjogeleit/http-request-action@v1
         with:
@@ -34,8 +25,8 @@ jobs:
               "content": "🚀 **New Commit Alert!**",
               "embeds": [
                 {
-                  "title": "$FIRST_LINE",
-                  "description": "A new commit has been pushed to **${{ github.repository }}**. \n\n**Description:**\n$COMMIT_MESSAGE",
+                  "title": "${{ github.event.head_commit.message }}",
+                  "description": "A new commit has been pushed to **${{ github.repository }}**.",
                   "color": 5814783,
                   "fields": [
                     {
@@ -49,13 +40,6 @@ jobs:
                     {
                       "name": "View Commit",
                       "value": "[Click here to view the commit](${{ github.event.head_commit.url }})"
-                    },
-                    ${
-                      env.ISSUE_ID ? 
-                      `{
-                        "name": "Linear Issue",
-                        "value": "[View Issue](https://linear.app/antoniobfm/issue/$ISSUE_ID)" # Change antoniobfm to your workspace name
-                      },` : ''
                     }
                   ],
                   "footer": {
