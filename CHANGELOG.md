@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.2...v1.1.3) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** discord notification now doesnt try to like to linear ANT-10 ([ec3dddf](https://github.com/antoniobfm/increment-git-tag/commit/ec3dddfbf8f1a394723b30fe48565b13b971cd7f))
+
 ## [1.1.2](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.1...v1.1.2) (2024-06-03)
 
 
