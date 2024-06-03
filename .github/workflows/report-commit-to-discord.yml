@@ -14,9 +14,11 @@ jobs:
 
       - name: Set up commit info
         run: |
-          echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" >> $GITHUB_ENV
-          echo "FIRST_LINE=$(echo $COMMIT_MESSAGE | head -n 1)" >> $GITHUB_ENV
-          ISSUE_ID=$(echo $COMMIT_MESSAGE | grep -o 'ANT-[0-9]\+')
+          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+          FIRST_LINE="$(echo "$COMMIT_MESSAGE" | head -n 1)"
+          echo "FIRST_LINE=$FIRST_LINE" >> $GITHUB_ENV
+          ISSUE_ID=$(echo "$COMMIT_MESSAGE" | grep -o 'ANT-[0-9]+')
           echo "ISSUE_ID=$ISSUE_ID" >> $GITHUB_ENV
 
       - name: Deploy Stage
