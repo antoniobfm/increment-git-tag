@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.7...v1.1.8) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** now getting the actual commit title ([0c9e55e](https://github.com/antoniobfm/increment-git-tag/commit/0c9e55e45723d0fdcfae33b40173385a74b01cf3))
+
 ## [1.1.7](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.6...v1.1.7) (2024-06-03)
 
 
