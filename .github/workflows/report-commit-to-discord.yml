@@ -30,7 +30,7 @@ jobs:
           customHeaders: '{"Content-Type": "application/json"}'
           data: |
             {
-              "content": "🚀 **New Commit Alert!** 🚀",
+              "content": "🚀 **New Commit Alert!**",
               "embeds": [
                 {
                   "title": "${{ github.event.head_commit.message }}",
@@ -51,7 +51,6 @@ jobs:
                     },
                     {
                       "name": "View Linear Issue",
-                      # Change antoniobfm to your Linear workspace name
                       "value": "[View Linear Issue](https://linear.app/antoniobfm/issue/${{ env.LINEAR_ID }})",
                       "inline": true
                     }
