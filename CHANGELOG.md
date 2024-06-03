@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.5...v1.1.6) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** add linear issue link to discord notification ANT-10 ([3f82928](https://github.com/antoniobfm/increment-git-tag/commit/3f829281af8a28000d99ec8e59c8c96f744d955e))
+
 ## [1.1.5](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.4...v1.1.5) (2024-06-03)
 
 
