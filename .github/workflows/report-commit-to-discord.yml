@@ -14,6 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Extract Linear ID
+        id: extract-id
+        run: |
+          LINEAR_ID=$(echo '${{ github.event.head_commit.message }}' | grep -o 'ANT-[0-9]\+')
+          echo "LINEAR_ID=$LINEAR_ID" >> $GITHUB_ENV
+
       - name: Deploy Stage
         uses: fjogeleit/http-request-action@v1
         with:
@@ -40,6 +46,11 @@ jobs:
                     {
                       "name": "View Commit",
                       "value": "[Click here to view the commit](${{ github.event.head_commit.url }})"
+                    },
+                    {
+                      "name": "View Linear Issue",
+                      "value": "[View Linear Issue](https://linear.app/antoniobfm/issue/${{ env.LINEAR_ID }})",
+                      "inline": true
                     }
                   ],
                   "footer": {
