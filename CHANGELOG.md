@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.8...v1.1.9) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** remove comment from discord notification content ANT-10 ([112c584](https://github.com/antoniobfm/increment-git-tag/commit/112c58439d8671df670c3ffb3a452879e371de45))
+
 ## [1.1.8](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.7...v1.1.8) (2024-06-03)
 
 
