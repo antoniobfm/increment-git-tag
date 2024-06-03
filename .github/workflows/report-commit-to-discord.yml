@@ -8,9 +8,17 @@ on:
 jobs:
   report-commit-to-discord:
     runs-on: ubuntu-latest
-    environment:
-      name: Semantic
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Extract Linear Issue ID
+        id: linear
+        run: |
+          echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" > $GITHUB_ENV
+          ISSUE_ID=$(echo $COMMIT_MESSAGE | grep -o 'ANT-[0-9]\+') # Change PRO to your project prefix
+          echo "::set-output name=issue_id::$ISSUE_ID"
+
       - name: Deploy Stage
         uses: fjogeleit/http-request-action@v1
         with:
@@ -19,30 +27,37 @@ jobs:
           customHeaders: '{"Content-Type": "application/json"}'
           data: |
             {
-              "content": null,
+              "content": "🚀 **New Commit Alert!**",
               "embeds": [
                 {
-                  "title": "Novo Commit",
-                  "description": "Discohook has a bot as well, it`s not strictly required to send messages it may be helpful to have it ready.",
+                  "title": "${{ github.event.head_commit.message.split('\n')[0] }}",
+                  "description": "A new commit has been pushed to **${{ github.repository }}**. \n\n**Description:**\n${{ github.event.head_commit.message }}",
                   "color": 5814783,
                   "fields": [
                     {
-                      "name": "Getting special formatting for mentions, channels, and emoji",
-                      "value": "The **/format** command of the bot can give you special formatting for use in Discord messages that lets you create mentions, tag channels, or use emoji ready to paste into the editor!\n\nThere are [manual ways](https://discord.dev/reference#message-formatting) of doing this, but it`s very error prone. The bot will make sure you`ll always get the right formatting for your needs."
+                      "name": "Commit Author",
+                      "value": "${{ github.event.head_commit.author.name }}"
                     },
                     {
-                      "name": "Creating reaction roles",
-                      "value": "You can manage reaction roles with the bot using the **/reaction-role** command.\n\nThe set-up process is very intuitive: type out **/reaction-role create**, paste a message link, select an emoji, and pick a role. Hit enter and you're done, your members can now react to any of your messages to pick their roles."
+                      "name": "Branch",
+                      "value": "${{ github.ref }}"
                     },
                     {
-                      "name": "Recover Discohook messages from your server",
-                      "value": "It can also restore any message sent in your Discord server for you via the apps menu.\n\nTo get started, right-click or long-press on any message in your server, press on apps, and then press **Restore to Discohook**. It`ll send you a link that leads to the editor page containing the message you selected!"
+                      "name": "View Commit",
+                      "value": "[Click here to view the commit](${{ github.event.head_commit.url }})"
                     },
-                    {
-                      "name": "Other features",
-                      "value": "Discohook can also grab images from profile pictures or emoji, manage your webhooks, and more. Invite the bot and use **/help** to learn about all the bot offers!"
+                    ${
+                      steps.linear.outputs.issue_id ? 
+                      `{
+                        "name": "Linear Issue",
+                        "value": "[View Issue](https://linear.app/antoniobfm/issue/${{ steps.linear.outputs.issue_id }})" # Change antoniobfm to your workspace name
+                      },` : ''
                     }
-                  ]
+                  ],
+                  "footer": {
+                    "text": "Commit ID: ${{ github.sha }}"
+                  },
+                  "timestamp": "${{ github.event.head_commit.timestamp }}"
                 }
               ],
               "attachments": []
