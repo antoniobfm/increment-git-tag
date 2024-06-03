@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.4...v1.1.5) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** add environment and do not link to linear ([36840ea](https://github.com/antoniobfm/increment-git-tag/commit/36840eaa1af4639824eca88a07d32351fd7ae0db))
+
 ## [1.1.4](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.3...v1.1.4) (2024-06-03)
 
 
