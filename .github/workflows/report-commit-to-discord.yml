@@ -51,6 +51,7 @@ jobs:
                     },
                     {
                       "name": "View Linear Issue",
+                      # Change antoniobfm to your Linear workspace name
                       "value": "[View Linear Issue](https://linear.app/antoniobfm/issue/${{ env.LINEAR_ID }})",
                       "inline": true
                     }
