@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.3...v1.1.4) (2024-06-03)
+
+
+### Bug Fixes
+
+* **github actions:** no environment was associated before ([abbf7da](https://github.com/antoniobfm/increment-git-tag/commit/abbf7da845fdfbfa78542650998989ad3e6203cb))
+
 ## [1.1.3](https://github.com/antoniobfm/increment-git-tag/compare/v1.1.2...v1.1.3) (2024-06-03)
 
 
